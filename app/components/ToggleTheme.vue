@@ -5,7 +5,7 @@
       @click="toggleDark"
     >
       <Icon
-        :name="isDark ? 'lucide:moon' : 'lucide:sun'"
+        :name="isDark ? 'ph:moon-light' : 'ph:sun-light'"
       />
     </button>
   </ClientOnly>

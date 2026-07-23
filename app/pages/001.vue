@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import P5 from 'p5'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const sketchRoot = ref<HTMLElement | null>(null)
 let sketchInstance: P5 | null = null
