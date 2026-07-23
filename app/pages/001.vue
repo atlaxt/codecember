@@ -34,7 +34,7 @@ onMounted(() => {
 
           const d = p.dist(0, 0, dX, dY)
 
-          const alpha = p.map(d, 0, 200, 200, 70, true)
+          const alpha = p.map(d, 0, 200, 200, 80, true)
           const c = p.color(strokeColor.value)
           c.setAlpha(alpha)
           p.stroke(c)
@@ -59,7 +59,5 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div>
-    <div ref="sketchRoot" />
-  </div>
+  <div ref="sketchRoot" />
 </template>

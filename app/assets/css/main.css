@@ -2,5 +2,5 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 div {
-  font-family: Outfit, sans-serif;
+  font-family: Unica One, sans-serif;
 }
