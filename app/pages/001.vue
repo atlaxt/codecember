@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import P5 from 'p5'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const sketchRoot = ref<HTMLElement | null>(null)
 let sketchInstance: P5 | null = null
@@ -21,17 +22,30 @@ onMounted(() => {
       p.background(backgroundColor.value)
 
       p.translate(canvasSize / 2, canvasSize / 2)
-      p.stroke(strokeColor.value)
 
-      for (let i = -10; i < 10; i++) {
-        for (let j = -10; j < 10; j++) {
+      for (let i = -15; i < 15; i++) {
+        for (let j = -15; j < 15; j++) {
           const x = i * 15
           const y = j * 15
 
-          const closeLineX = (p.mouseX - canvasSize / 2) - x
-          const closeLineY = (p.mouseY - canvasSize / 2) - y
+          const getD = (_p: number, _n: number) => (_p - canvasSize / 2) - _n
+          let dX = getD(p.mouseX, x)
+          let dY = getD(p.mouseY, y)
 
-          p.line(x, y, x + closeLineX / 20, y + closeLineY / 20)
+          const d = p.dist(0, 0, dX, dY)
+
+          const alpha = p.map(d, 0, 200, 200, 70, true)
+          const c = p.color(strokeColor.value)
+          c.setAlpha(alpha)
+          p.stroke(c)
+
+          if (d > 200) {
+            const ratio = 200 / d
+            dX *= ratio
+            dY *= ratio
+          }
+
+          p.line(x, y, x + dX / 20, y + dY / 20)
         }
       }
     }
@@ -46,36 +60,6 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <div ref="sketchRoot" class="sketch-shell" />
+    <div ref="sketchRoot" />
   </div>
 </template>
-
-<!--
-const width = 400;
-const height = 400;
-
-function setup() {
-  createCanvas(width, height);
-  angleMode(DEGREES);
-  rectMode(CENTER);
-}
-
-function draw() {
-  background(0);
-
-  translate(width/2, height/2);
-  stroke('#ffffff');
-
-  for(let i = -10; i < 10; i++) {
-    for(let j = -10; j < 10; j++) {
-      let x = i * 15
-      let y = j * 15
-
-      let closeLineX = (mouseX - width/2) - x
-      let closeLineY = (mouseY - height/2) - y
-
-      line(x, y, x + closeLineX / 20, y + closeLineY / 20)
-    }
-  }
-}
--->
