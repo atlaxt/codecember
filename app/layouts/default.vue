@@ -26,6 +26,6 @@ const route = useRoute()
         <slot />
       </div>
     </div>
-    <note />
+    <note :key="route.fullPath" />
   </div>
 </template>
