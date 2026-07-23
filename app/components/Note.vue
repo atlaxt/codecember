@@ -37,13 +37,17 @@ const art = computed(() => {
         <!-- This is a simple note component. -->
       </p>
 
-      <div class="flex flex-row gap-4 w-full uppercase text-sm opacity-60">
+      <div class="flex flex-row items-end gap-4 w-full uppercase text-sm opacity-60">
         <NuxtLink target="_blank" :to="`https://codecember.netlify.app/2020/${arts.indexOf(art) + 1}`">
           codegen
         </NuxtLink>
         .
         <NuxtLink target="_blank" :to="`https://github.com/atlaxt/codecember/blob/master/app/pages/${(arts.indexOf(art) + 1).toString().padStart(3, '0')}.vue`">
           source
+        </NuxtLink>
+        <NuxtLink to="https://atlaxt.me" target="_blank" class="ml-auto">
+          <img v-show="isDark" src="https://atlaxt.me/sign_white.png" alt="Atlaxt" class="w-8 h-8">
+          <img v-show="!isDark" src="https://atlaxt.me/sign_black.png" alt="Atlaxt" class="w-8 h-8">
         </NuxtLink>
       </div>
     </div>
