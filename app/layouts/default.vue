@@ -3,7 +3,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="dark:bg-black dark:text-white w-screen h-screen">
+  <div class="dark:bg-black dark:text-white w-screen h-screen overflow-y-auto">
     <div class="flex flex-col justify-center pt-12 max-w-xl mx-auto">
       <div class="w-full flex justify-between items-center">
         <nuxt-link v-show="route.path === '/'" class="uppercase text-xl" to="https://codecember.netlify.app/" target="_blank">

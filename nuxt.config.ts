@@ -15,5 +15,12 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/fonts',
     '@nuxt/icon',
+    '@nuxt/content',
   ],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'dark',
+    storageKey: 'nuxt-color-mode',
+  },
 })

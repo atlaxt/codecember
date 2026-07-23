@@ -45,10 +45,10 @@ const art = computed(() => {
         <NuxtLink target="_blank" :to="`https://github.com/atlaxt/codecember/blob/master/app/pages/${(arts.indexOf(art) + 1).toString().padStart(3, '0')}.vue`">
           source
         </NuxtLink>
-        <NuxtLink to="https://atlaxt.me" target="_blank" class="ml-auto">
+        <!-- <NuxtLink to="https://atlaxt.me" target="_blank" class="ml-auto">
           <img v-show="isDark" src="https://atlaxt.me/sign_white.png" alt="Atlaxt" class="w-8 h-8">
           <img v-show="!isDark" src="https://atlaxt.me/sign_black.png" alt="Atlaxt" class="w-8 h-8">
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
     </div>
   </div>
